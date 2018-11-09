@@ -84,5 +84,10 @@ class Student extends Model
         }
     }
 
+    public function scopeFof($q, $v)
+    {
+        return $q->findOrFail($v);
+    }
+
 
 }

@@ -124,7 +124,7 @@ class StudentsController extends Controller
         $student = new Student;
 
         // Logic; Finding student and showing it to the user
-        $showStudent = $student->findOrFail($id);
+        $showStudent = $student->fof($id);
 
         // Get the student's courses
         $courses = $showStudent->courses;
@@ -150,7 +150,7 @@ class StudentsController extends Controller
       $courses = $course->all();
 
       // get the student by id
-      $showStudent = $student->findOrFail($id);
+      $showStudent = $student->fof($id);
 
       // place all student's courses' IDs for checking them with in_array function
       $studentCourses = [];
@@ -187,7 +187,7 @@ class StudentsController extends Controller
         $coursesForStudent = $request->courses;
 
         // logical stuff
-        $studentToUpdate = $student->find($studentId);
+        $studentToUpdate = $student->fof($studentId);
 
         // updating the student
         $studentToUpdate->name = $studentName;
@@ -228,7 +228,7 @@ class StudentsController extends Controller
 
         // logical stuff; find the student BY ID; and delete him
 
-        $student->find($studentId)->delete();
+        $student->fof($studentId)->delete();
         $count = $student->all()->count();
         $result['status'] = 1;
         $result['msg'] = 'success';
