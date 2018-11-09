@@ -16,10 +16,3 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-
-
-Route::get('/page/features', 'HomeBlocksController@features');
-Route::get('/page/screenshots', 'HomeBlocksController@screenshots');
-Route::get('/page/blog', 'HomeBlocksController@blog');
-Route::get('/page/pricing', 'HomeBlocksController@pricing');
-Route::get('/page/contact', 'HomeBlocksController@contact');
